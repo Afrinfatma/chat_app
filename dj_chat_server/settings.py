@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,16 +69,19 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dj_chat_server.wsgi.application'
-
+ASGI_APPLICATION = "dj_chat_server.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dj_chat_server',
+        'USER': 'postgres',
+        'PASSWORD': 'afrinfatma',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
